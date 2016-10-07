@@ -137,11 +137,19 @@ public class ScreenCaptureUI implements MouseListener, MouseMotionListener {
 
     @Override
     public void mousePressed(MouseEvent e){
+        if(e.getButton() != MouseEvent.BUTTON1){
+            return;
+        }
+
         firstPt = hoverPt = e.getPoint();
     }
 
     @Override
     public void mouseReleased(MouseEvent e){
+        if(e.getButton() != MouseEvent.BUTTON1){
+            return;
+        }
+
         secondPt = e.getPoint();
         finishCapture();
     }
